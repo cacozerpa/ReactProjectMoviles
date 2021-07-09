@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "BackEnd from a React App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cacozerpa/ReactProjectMoviles.git"
+  },
+  "author": "Carlos Zerpa, Ricardo Graziano",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cacozerpa/ReactProjectMoviles/issues"
+  },
+  "homepage": "https://github.com/cacozerpa/ReactProjectMoviles#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "pg": "^8.6.0"
+  }
+}
