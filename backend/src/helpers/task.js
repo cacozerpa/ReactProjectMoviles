@@ -1,7 +1,7 @@
 const db = require('../utils/db');
 const queries = require('../utils/queries');
 
-const getTasks = (req, res) => {
+const getTasks = async (req, res) => {
     try{
         const response = await db.query(queries.GET_TASKS);
         console.log('Showing Tasks!');
@@ -12,7 +12,7 @@ const getTasks = (req, res) => {
         }
 }
 
-const getTaskById = (req, res) => {
+const getTaskById = async (req, res) => {
     try{
 
         const id = req.params.id;

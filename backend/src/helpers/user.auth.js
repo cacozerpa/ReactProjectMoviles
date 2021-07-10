@@ -4,7 +4,7 @@ const queries = require('../utils/queries');
 
 const createUser = async(req, res) => {
 
-    const {name, username, email, password} = req.body;
+    const {username, email, password} = req.body;
     
         try{
             const checkUser = await db.query(queries.CHECKUSER, [username]);

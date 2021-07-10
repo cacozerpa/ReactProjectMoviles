@@ -9,6 +9,8 @@ require('dotenv').config({path:'../.env'});
 const UserRoutes = require('./routes/user');
 const AuthRoutes = require('./routes/user.auth');
 const LoginRoute = require('./routes/user.login');
+const TasksRoutes = require('./routes/task');
+const AuthTasksRoutes = require('./routes/auth.task');
 
 const app = express();
 
@@ -42,7 +44,9 @@ console.log(`App Running on port: ${PORT}`);
 
 app.use(UserRoutes);
 app.use(AuthRoutes);
-app.use(LoginRoute)
+app.use(LoginRoute);
+app.use(TasksRoutes);
+app.use(AuthTasksRoutes);
 
 app.use(cors({
     origin: true,
