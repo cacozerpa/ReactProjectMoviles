@@ -53,6 +53,7 @@ const getUserByUsername = async (username) => {
         }
 
     }catch(err){
+        res.status(500).send('Server Error!');
         throw err; 
     }
 }
