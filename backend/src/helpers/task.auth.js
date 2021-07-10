@@ -2,11 +2,11 @@ const db = require('../utils/db');
 const queries = require('../utils/queries');
 
 const createTask =async (req, res) => {
-    const {username, title, description, tag, date} = req.body;
+    const {title, description, tag, date} = req.body;
     const id = req.parms.id;
 
     try{
-        const user = db.query(queries.GET_USERBYID, [id]);
+        const username = db.query(queries.GET_USERBYID, [id]);
        if(user.rows != ''){
             await db.query('BEGIN')
             const response = await db.query(queries.CREATE_TASK, [username, title, description, tag, date]);

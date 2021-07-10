@@ -15,15 +15,15 @@ const getUsers = async (req, res) =>{
 const getUsersById = async (req,res) => {
     try{
 
-    const id = req.params.id;
-    const checkId = await db.query(queries.CHECKID, [id]);
+    const user_id = req.params.user_id;
+    const checkId = await db.query(queries.CHECKID, [user_id]);
 
     if(checkId.rows != ''){
-        const response = await db.query(queries.GET_USERBYID, [id]);
-        console.log(`Showing User ${id}!`);
+        const response = await db.query(queries.GET_USERBYID, [user_id]);
+        console.log(`Showing User ${user_id}!`);
         res.status(200).send(response.rows);
     }else{
-        res.status(400).send(`User ${id} not found!`)
+        res.status(400).send(`User ${user_id} not found!`)
     }
 
     }catch(err){
