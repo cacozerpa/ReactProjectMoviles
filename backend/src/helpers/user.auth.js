@@ -72,13 +72,16 @@ const deleteUser = async (req, res) =>{
     try{
     await db.query('BEGIN');
     const id = req.params.id;
+    const user = await db.query(queries.GET_USERBYID, [id]);
+    const username = user.rows[0].username;
     const checkIdD = await db.query(queries.CHECKID, [id]);
 
     if(checkIdD.rows != ''){
 
+    const tasks = await db.query(queries.DELETE_USERTASKS, [username]);
     const response = await db.query(queries.DELETE_USER, [id]);
     await db.query('COMMIT');
-    console.log(response);
+    console.log(response + tasks);
     res.status(200).send(`User ${id} Deleted!`)
     }else{
         res.status(400).send(`User Id ${id} not found!`);

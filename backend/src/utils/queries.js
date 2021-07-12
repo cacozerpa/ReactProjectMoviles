@@ -24,7 +24,8 @@ const querys = {
     GET_TASKBYID: `SELECT * FROM public. "Tasks" WHERE id =$1`,
     GET_TASKSBYUSERNAME: `SELECT * FROM public. "Tasks" WHERE username = $1`,
     UPDATE_TASK: `UPDATE public. "Tasks" SET title = $1, dsc = $2, tag = $3, dt = $4 WHERE id = $5 RETURNING *`,
-    DELETE_TASK: `DELETE FROM public. "Tasks" WHERE id = $1`
+    DELETE_TASK: `DELETE FROM public. "Tasks" WHERE id = $1`,
+    DELETE_USERTASKS: `DELETE FROM public. "Tasks" WHERE username = $1`
     
 }
 
