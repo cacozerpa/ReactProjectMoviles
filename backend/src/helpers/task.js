@@ -35,20 +35,16 @@ const getTaskById = async (req, res) => {
 const getTasksByUsername = async (req, res) => {
     try{ 
         const id = req.params.id;
-        const username = await db.query(queries.GET_USERBYID, [id]);
+        const user = await db.query(queries.GET_USERBYID, [id]);
+        const username = user.rows[0].username;
         const response = await db.query(queries.GET_TASKSBYUSERNAME, [username]);
         
         if(response){
             console.log('Task Found!')
-            return ({
-                id: response.rows[0].id,
-                name: response.rows[0].name,
-                username: response.rows[0].username,
-                email: response.rows[0].email,
-                password: response.rows[0].password
-            })
+            res.status(200).send(response.rows);
         }else{
            console.log('Task Not Found!')
+           res.status(400).send('Tasks Not Found!');
            return null;
         }
 

@@ -19,11 +19,11 @@ const querys = {
     CHECKTASKID: `SELECT * FROM public. "Tasks" WHERE id=$1`,
 
     //Task Queries
-    CREATE_TASK: `INSERT INTO public. "Task" (username, title, description, tag, date) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+    CREATE_TASK: `INSERT INTO public. "Tasks" (username, title, dsc, tag, dt) VALUES ($1, $2, $3, $4, $5) RETURNING *`,
     GET_TASKS: `SELECT * FROM public. "Tasks"`,
     GET_TASKBYID: `SELECT * FROM public. "Tasks" WHERE id =$1`,
     GET_TASKSBYUSERNAME: `SELECT * FROM public. "Tasks" WHERE username = $1`,
-    UPDATE_TASK: `UPDATE public. "Tasks" SET title = $1, description = $2, tag = $3, date = $4 WHERE id = $5 RETURNING *`,
+    UPDATE_TASK: `UPDATE public. "Tasks" SET title = $1, dsc = $2, tag = $3, dt = $4 WHERE id = $5 RETURNING *`,
     DELETE_TASK: `DELETE FROM public. "Tasks" WHERE id = $1`
     
 }
