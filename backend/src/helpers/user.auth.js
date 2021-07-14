@@ -7,12 +7,13 @@ const createUser = async(req, res) => {
     const {username, email, password} = req.body;
     
         try{
+            await db.query('BEGIN');
             const checkUser = await db.query(queries.CHECKUSER, [username]);
             const checkEmail = await db.query(queries.CHECKEMAIL, [email]);
 
             if(checkUser.rows == ''){
                 if(checkEmail.rows == ''){
-                    await db.query('BEGIN');
+                    
                     const salt = bcrypt.genSaltSync(12);
                     const HashPass = bcrypt.hashSync(password, salt);
                     const response = await db.query(queries.CREATE_USER, [username, email, HashPass]);
